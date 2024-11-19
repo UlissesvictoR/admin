@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ProductCreated;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -24,6 +25,8 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = Product::create($request->only('title','image'));
+
+        ProductCreated::dispatch($product->toArray());
 
         return response($product,Response::HTTP_CREATED);
     }

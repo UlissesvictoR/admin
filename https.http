@@ -12,8 +12,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "title": "title",
-    "image": "image"
+    "title": "T",
+    "image": "I"
 }
 
 ### Update Product
